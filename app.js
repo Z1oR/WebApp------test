@@ -73,19 +73,20 @@ btn2.addEventListener("click", function(){
 btn3.addEventListener("click", function(){
 	if (tg.MainButton.isVisible) {
 		tg.MainButton.hide();
+		
 	}
 	else {
 		tg.MainButton.setText("Нажмите чтобы оплатить");
 		item = "3";
-		tg.MainButton.show();
+		// tg.MainButton.show();
+		tg.senData(item)
 	}
 });
 
 
-
-Telegram.WebApp.onEvent("mainButtonClicked", function(){
-	tg.sendData(item);
-});
+// Telegram.WebApp.onEvent("mainButtonClicked", function(){
+// 	tg.sendData(item);
+// });
 
 
 
