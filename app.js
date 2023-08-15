@@ -5,6 +5,38 @@ tg.expand();
 tg.MainButton.textColor = '#FFFFFF';
 tg.MainButton.color = '#2cab37';
 
+
+
+// slide one
+let nextslide = document.getElementById("next1");
+nextslide.addEventListener('click', () => {
+	document.getElementById("main").style.display = 'none';
+	document.getElementById("listtarif").style.display = 'block';
+})
+
+
+//slide two
+let nextslide1 = document.getElementById("next2");
+nextslide1.addEventListener('click', () => {
+	document.getElementById("listtarif").style.display = 'none';
+	document.getElementById("listtarif2").style.display = 'block';
+})
+
+
+let nextslide2 = document.getElementById('next3');
+nextslide2.addEventListener('click', () => {
+	document.getElementById('listtarif2').style.display = 'none';
+	document.getElementById('listtarif3').style.display = 'block';
+})
+
+let nextslide3 = document.getElementById('next4');
+nextslide3.addEventListener('click', () => {
+	document.getElementById('listtarif3').style.display = 'none';
+	document.getElementById('container').style.display = 'block';
+})
+
+
+
 let item = "";
 
 let btn1 = document.getElementById("btn1");
@@ -94,6 +126,7 @@ p.innerText = `${tg.initDataUnsafe.user.first_name}
 ${tg.initDataUnsafe.user.last_name}`;
 
 usercard.appendChild(p);
+
 
 
 
