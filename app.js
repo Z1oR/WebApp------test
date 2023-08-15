@@ -81,17 +81,11 @@ btn3.addEventListener("click", function(){
 	}
 });
 
-let data = {
-	item: item,
-	
-}
-
-tg.sendData(JSON.stringify(data))
 
 
-// Telegram.WebApp.onEvent("mainButtonClicked", function(){
-// 	tg.sendData(item);
-// });
+Telegram.WebApp.onEvent("mainButtonClicked", function(){
+	tg.sendData(item);
+});
 
 
 
