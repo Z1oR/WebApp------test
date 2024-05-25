@@ -1,62 +1,42 @@
 body {
-	margin: 0;
-	padding: 0;
-	font-size: 18px;
-	color: var(--tg-theme-text-color);
-	background: var(--tg-theme-bg-color);
+  margin: 0;
+  padding: 0;
+  color: var(--tg-theme-text-color);
+  background: var(--tg-theme-bg-color);
+  font-family: "Poetsen One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
-.container {
-	max-width: 390px;
+.Card1 {
+  width: 400px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
-
-.inner {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 200px 200px 200px;
+.Card1 .header1 h2 {
+  margin-left: 24%;
 }
-
-.img {
-	width: 150px;
+.Card1 .header1 h4 {
+  margin-left: 37%;
 }
-
-.item {
-	text-align: center;
+.Card1 .content1 {
+  margin: 0 auto;
+  margin-bottom: 50px;
+  margin-top: 50px;
 }
-
-.btn {
-	display: inline-block;
-	padding: 10px 20px;
-	border: none;
-	background: rgb(248, 168, 24);
-	border-radius: 10px;
-	color: #fff;
-	text-transform: uppercase;
-	font-weight: 700;
-
-	transition: background .2s linear;
+.Card1 .btn1Content {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  margin-bottom: 100px;
 }
-
-.btn:hover {
-	background: lightgreen;
-}
-
-.usercard {
-	text-align: center;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.Card1 .btn1Content button {
+  margin-bottom: 10px;
+  width: 250px;
+  height: 30px;
+  border-radius: 5px;
+  background-color: #acccfc;
+  font-weight: bold;
+  border: 1px black solid;
+}/*# sourceMappingURL=index.css.map */
