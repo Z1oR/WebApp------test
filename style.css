@@ -14,11 +14,8 @@ body {
   display: flex;
   flex-direction: column;
 }
-.Card1 .header1 h2 {
-  margin-left: 24%;
-}
-.Card1 .header1 h4 {
-  margin-left: 37%;
+.Card1 .header1 {
+  margin: 0 auto;
 }
 .Card1 .content1 {
   margin: 0 auto;
