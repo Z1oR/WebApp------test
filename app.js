@@ -11,7 +11,7 @@ Telegram.WebApp.onEvent("mainButtonClicked", function(){
 
 let usercard = document.querySelector("#usercard");
 
-usercard.innerHTML = `${tg.initDataUnsafe.user.full_name}`
+usercard.innerHTML = `${tg.initDataUnsafe.user.first_name}`
 
 
 
