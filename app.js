@@ -9,15 +9,10 @@ Telegram.WebApp.onEvent("mainButtonClicked", function(){
 	tg.sendData(item);
 });
 
-let usercard = document.querySelector("#usercard");
-
-usercard.innerHTML = `${tg.initDataUnsafe.user.first_name}`
 
 
-
-
-
-
+const usercard = document.getElementById("usercard")
+usercard.innerHTML = `${tg.initDataUnsafe.user.username}`
 
 
 
