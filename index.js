@@ -5,9 +5,9 @@ tg.expand();
 tg.MainButton.textColor = '#FFFFFF';
 tg.MainButton.color = '#2cab37';
 
-// let username = document.querySelector("#username");
+let username = document.querySelector("#username");
 
-// username.innerHTML = `${tg.initDataUnsafe.user.username}`
+username.innerHTML = `${tg.initDataUnsafe.user.username}`
 
 let BlockMain = document.querySelector(".BlockMain");
 let BlockBoost = document.querySelector(".BlockBoost");
