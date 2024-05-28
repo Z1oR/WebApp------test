@@ -7,7 +7,7 @@ tg.MainButton.color = '#2cab37';
 
 
 let username = document.getElementById("username");
-username.innerHTML = `${tg.initDataUnsafe.user.full_name}`
+username.innerHTML = `${tg.initDataUnsafe.user.username}`
 
 let BlockMain = document.querySelector(".BlockMain");
 let BlockBoost = document.querySelector(".BlockBoost");
