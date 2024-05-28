@@ -10,9 +10,19 @@ Telegram.WebApp.onEvent("mainButtonClicked", function(){
 });
 
 
+const reloadInfoBtn = document.querySelector("#botStart");
 
-const usercard = document.getElementById("usercard")
-usercard.innerHTML = `${tg.initDataUnsafe.user.username}`
+reloadInfoBtn.addEventListener('click', () =>{
+	const usercard = document.getElementById("usercard")
+	usercard.innerHTML = `${tg.initDataUnsafe.user.username}`
+})
+
+
+
+
+
+
+
 
 
 
