@@ -18,6 +18,10 @@ header .headerContent {
   flex-direction: row;
   align-items: center;
 }
+header .headerContent img {
+  width: 70px;
+  height: 40px;
+}
 header .headerContent h3 {
   margin-top: 15px;
   margin-left: 20px;
