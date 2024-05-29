@@ -5,9 +5,8 @@ tg.expand();
 tg.MainButton.textColor = '#FFFFFF';
 tg.MainButton.color = '#2cab37';
 
-
-let username = document.getElementById("username");
-username.innerHTML = `${tg.initDataUnsafe.user.username}`
+// let username = document.getElementById("username");
+// username.innerHTML = `${tg.initDataUnsafe.user.username}`
 
 let BlockMain = document.querySelector(".BlockMain");
 let BlockBoost = document.querySelector(".BlockBoost");
@@ -45,4 +44,16 @@ BlockTask.addEventListener("click", () => {
     BlockTask.style.borderBottom = "5px solid blue"
     BlockMain.style.borderBottom = "none"
     BlockBoost.style.borderBottom = "none"
+})
+
+
+let ColwoMoneyH1 = document.querySelector("#ColwoMoneyH1");
+
+let moneyClick = document.querySelector(".moneyClick");
+
+let moneyValue = 0
+
+moneyClick.addEventListener("click", () => {
+    moneyValue = moneyValue + 1
+    ColwoMoneyH1.innerHTML = moneyValue
 })
