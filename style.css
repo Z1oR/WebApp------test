@@ -110,6 +110,7 @@ main .progressBarBlock .ContentProgress .progress-info {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
+  background: none;
 }
 
 footer {
