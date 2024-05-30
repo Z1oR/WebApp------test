@@ -4,77 +4,58 @@
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clicker!</title>
+    <title>WebApp clicker</title>
 </head>
 <body>
     <header>
         <div class="headerContent">
-            <!-- <h3>"Logo"</h3>
-            <h4><b>Clicker - Это самый лучший кликер!</b></h4> -->
-            <div class="UserCard">
-                <h3 id="username">UserName</h3>
-            </div>
-            <img src="./image/MoneyImage.png" alt="">
+            <img src="./img/money.webp" alt="logo">
+            <h1>1,000,000</h1>
         </div>
     </header>
-    <main id="Main">
-        <div class="mainContent">
-            <div class="MoneyInfo">
-                <h1 id="ColwoMoneyH1"><b>0</b></h1>
-            </div>
-            <div class="moneyClick">
-                <img src="./image/MoneyImage.png" alt="">
-            </div>
-
-            <div class="InfoForClick">
-                <img src="./image/pngwing.com (1).png" alt="">  <h4><span>1000</span> / <span>1000</span></h4>
-            </div>
-
-            
+    <div class="StatusInfo">
+        <div class="contentStatus">
+            <img src="./img/money.webp" alt="Image">
+            <h4>Legend</h4>
         </div>
-    </main>
-
-    <div class="taskBlock">
-        <div class="Twitter cardTask">
-            <p>Подписаться на аккаунт Twitter<br>Награда: 5000</p>
-            <button>Проверить</button>
-        </div>
-        <div class="YouTube cardTask">
-            <p>Подписаться на канал YouTube <br>Награда: 5000</p>
-            <button>Проверить</button>
-        </div>
-        <div class="Telegram cardTask">
-            <p>Подписаться на телеграм канал <br>Награда: 10000</p>
-            <button>Проверить</button>
-        </div>
+        
     </div>
-
-    <div class="BoostBlock">
-        <h4>Прокачать энергию <br>lvl: 1</h4>
-
-        <h4>Прокачать нажатие <br>lvl: 1</h4>
-    </div>
-
-
-    <footer>
-        <div class="MenuCard">
-            <div class="BlockMain">
-                <h4>Main</h4>
+    <main>
+        <div class="MoneyClicker">
+            <div id="MoneyClickers">
+                <img id="MoneyClickers" src="./img/money.webp" alt="Money">
             </div>
+        </div>
 
-            <div class="BlockBoost">
-                <img src="./image/boost.png" alt=""><h4>Boost</h4>
-            </div>
+        <div class="progressBarBlock">
+            <div class="ContentProgress">
+                <div class="progress-bar">
 
-            <div class="BlockTask">
-                <h4>Task</h4>
+                    <div class="progress">⚡</div>
+
+                </div>
+                <div class="progress-info">
+                    <h4><span id="ClickCount">3000</span>/<span id="ClickMaxValue">10000</span></h4>
+
+                </div>
             </div>
             
         </div>
         
+    </main>
+    <footer>
+        <div class="footerContent">
+            <div class="RefiralsBlock footerCard">
+                <h3>REF</h3>
+            </div>
+            <div class="TaskBlock footerCard">
+                <h3>TASK</h3>
+            </div>
+            <div class="BoostBlock footerCard">
+                <h3>BOOST</h3>
+            </div>
+        </div>
     </footer>
-
-
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script src="index.js"></script>
 </body>
