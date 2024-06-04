@@ -7,7 +7,8 @@ function loginUser(telegramId) {
     fetch('http://127.0.0.1:8000/user/login', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'mode': 'no-cors'
         },
         body: JSON.stringify({ telegramId: telegramId })
     })
@@ -42,6 +43,7 @@ window.onload = () => {
 
     const user = tg.initDataUnsafe.user;
     let TelegramID = `${user.id}`
+    console.log(TelegramID)
     loginUser(TelegramID)
 };
 
