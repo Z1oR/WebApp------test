@@ -116,7 +116,7 @@ main .progressBarBlock .ContentProgress .progress-info {
 footer {
   display: flex;
   justify-content: center;
-  margin-top: 70px;
+  margin-top: 40px;
 }
 footer .footerContent {
   display: flex;
