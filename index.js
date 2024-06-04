@@ -1,13 +1,56 @@
-// let tg = window.Telegram.WebApp;
-
-// tg.expand();
 const tg = window.Telegram.WebApp;
 tg.ready();
 
 const user = tg.initDataUnsafe.user;
-const userInfo = `ID: ${user.id}, Имя: ${user.first_name} ${user.last_name}, Username: ${user.username}`;
+
+function loginUser(telegramId) {
+    fetch('http://127.0.0.1:8000/user/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ telegramId: telegramId })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+        // Обработка ответа
+        if (data.message === 'User created successfully') {
+            console.log(`User ID: ${data.user_id}`);
+        } else if (data.message === 'User already exists') {
+            console.log(`User ID: ${data.user_id}`);
+        }
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+}
+
+// ${user.id}
+
+
+
+window.onload = () => {
+    const clickCount = getIntFromId('ClickCount');
+    const clickMaxValue = getIntFromId('ClickMaxValue');
     
-document.getElementById('user-info').innerText = userInfo;
+    let progressValue = 50
+    
+    updateProgressBar(progressValue);
+    console.log(`ClickCount: ${clickCount}`);
+    console.log(`ClickMaxValue: ${clickMaxValue}`);
+
+
+    let TelegramID = user.id
+    loginUser(TelegramID)
+};
+
+
+
+
+
+
+
 
 function updateProgressBar(value) {
     const progressBar = document.querySelector('.progress');
@@ -28,20 +71,7 @@ let ClickMaxValue1 = document.querySelector("#ClickMaxValue");
 ClickCount1.innerHTML = 250
 ClickMaxValue1.innerHTML = 500
 
-window.onload = () => {
-    const clickCount = getIntFromId('ClickCount');
-    const clickMaxValue = getIntFromId('ClickMaxValue');
-    
-    let progressValue = 50
-    
-    updateProgressBar(progressValue);
-    console.log(`ClickCount: ${clickCount}`);
-    console.log(`ClickMaxValue: ${clickMaxValue}`);
 
-
-
-    connectToFastApi(TelegramID)
-};
 
 
 
