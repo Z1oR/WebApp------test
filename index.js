@@ -1,7 +1,13 @@
-let tg = window.Telegram.WebApp;
+// let tg = window.Telegram.WebApp;
 
-tg.expand();
+// tg.expand();
+const tg = window.Telegram.WebApp;
+tg.ready();
 
+const user = tg.initDataUnsafe.user;
+const userInfo = `ID: ${user.id}, Имя: ${user.first_name} ${user.last_name}, Username: ${user.username}`;
+    
+document.getElementById('user-info').innerText = userInfo;
 
 function updateProgressBar(value) {
     const progressBar = document.querySelector('.progress');
@@ -19,44 +25,47 @@ function getIntFromId(id) {
 let ClickCount1 = document.querySelector("#ClickCount");
 let ClickMaxValue1 = document.querySelector("#ClickMaxValue");
 
-ClickCount1.innerHTML = 500
+ClickCount1.innerHTML = 250
 ClickMaxValue1.innerHTML = 500
 
 window.onload = () => {
     const clickCount = getIntFromId('ClickCount');
     const clickMaxValue = getIntFromId('ClickMaxValue');
     
-    let progressValue = 100
+    let progressValue = 50
     
     updateProgressBar(progressValue);
     console.log(`ClickCount: ${clickCount}`);
     console.log(`ClickMaxValue: ${clickMaxValue}`);
+
+
+
+    connectToFastApi(TelegramID)
 };
 
 
-// Значение переменной ClickCountOne
-const ClickCountOne = 10; // Пример значения, измените по необходимости
+
+const ClickCountOne = 2; 
 
 document.getElementById('MoneyClickers').addEventListener('click', function(event) {
-    // Создаем элемент для отображения числа
+
     const clickNumber = document.createElement('div');
     clickNumber.className = 'click-number';
     clickNumber.textContent = ClickCountOne;
 
-    // Устанавливаем начальное положение элемента относительно контейнера
+
     const rect = event.target.getBoundingClientRect();
-    // const offsetX = event.clientX - rect.left;
-    // const offsetY = event.clientY - rect.top;
+
     const offsetX = event.clientX - 5;
     const offsetY = event.clientY - 10;
     
     clickNumber.style.left = `${offsetX}px`;
     clickNumber.style.top = `${offsetY}px`;
 
-    // Добавляем элемент к блоку
+
     this.appendChild(clickNumber);
 
-    // Удаляем элемент после завершения анимации
+
     clickNumber.addEventListener('animationend', function() {
         clickNumber.remove();
     });
