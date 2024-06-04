@@ -40,8 +40,8 @@ window.onload = () => {
     console.log(`ClickCount: ${clickCount}`);
     console.log(`ClickMaxValue: ${clickMaxValue}`);
 
-
-    let TelegramID = user.id
+    const user = tg.initDataUnsafe.user;
+    let TelegramID = `${user.id}`
     loginUser(TelegramID)
 };
 
