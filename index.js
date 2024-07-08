@@ -31,28 +31,76 @@ function loginUser(telegramId) {
 
 // ${user.id}
 
+function IsClicked(click){
+    let Energy = getIntFromId('ClickCount');
+    if (Energy - click >= 0){
+        return true
+    }else{
+        return false
+    }
+}
+
+
+let adminId = 5676628854
+
+function IsAdmin(telegramId){
+    if (telegramId === adminId){
+        return true
+    } else{
+        return false
+    }
+}
+
+
+
+function Energy(click){
+    let Energy = getIntFromId('ClickCount');
+    let count = document.querySelector("#ClickCount");
+
+    const coin = document.querySelector("#MoneyClickers");
+    const coinValue = document.querySelector("#coinValue");
+
+    if (Energy - click < 0 || Energy < 0){
+        count.style.color = "red";
+    }else{
+        count.innerHTML = Energy - click;
+
+        coinValue.innerHTML = parseInt(coinValue.innerHTML) + ClickValue
+    }
+}
+
+
 
 
 window.onload = () => {
-    const clickCount = getIntFromId('ClickCount');
+    let clickCount = getIntFromId('ClickCount');
     const clickMaxValue = getIntFromId('ClickMaxValue');
+    const coinValue = document.querySelector("#coinValue");
     
-    let progressValue = 50
+    coinValue.innerHTML = 5000
+
     
-    updateProgressBar(progressValue);
-    console.log(`ClickCount: ${clickCount}`);
-    console.log(`ClickMaxValue: ${clickMaxValue}`);
 
     const user = tg.initDataUnsafe.user;
-    let TelegramID = `${user.id}`
-    loginUser(TelegramID)
+    let TelegramID = `${user.id}`;
+    var IsAdmin = IsAdmin(TelegramID);
+    if (IsAdmin){
+        document.querySelector("#UsRole").innerHTML = "Admin";
+    } else{
+        document.querySelector("#UsRole").innerHTML = "User"
+    }
+    // loginUser(TelegramID)
 };
 
 
+let ClickValue = 2
 
+const coin = document.querySelector("#MoneyClickers");
 
-
-
+coin.addEventListener('click', () => {
+    
+    Energy(ClickValue)
+})
 
 
 function updateProgressBar(value) {
@@ -71,36 +119,50 @@ function getIntFromId(id) {
 let ClickCount1 = document.querySelector("#ClickCount");
 let ClickMaxValue1 = document.querySelector("#ClickMaxValue");
 
-ClickCount1.innerHTML = 250
-ClickMaxValue1.innerHTML = 500
+ClickCount1.innerHTML = 1000
+ClickMaxValue1.innerHTML = 1000
 
 
+let progressValue = 100
 
+updateProgressBar(progressValue);
 
 
 const ClickCountOne = 2; 
 
 document.getElementById('MoneyClickers').addEventListener('click', function(event) {
 
-    const clickNumber = document.createElement('div');
-    clickNumber.className = 'click-number';
-    clickNumber.textContent = ClickCountOne;
+    var istr = IsClicked(ClickCountOne)
+    if (istr){
+        let clickCount = getIntFromId('ClickCount');
 
 
-    const rect = event.target.getBoundingClientRect();
+        
+        let progressValue = (clickCount % 1000) / 10
+        
 
-    const offsetX = event.clientX - 5;
-    const offsetY = event.clientY - 10;
+        updateProgressBar(progressValue);
+
+
+        const clickNumber = document.createElement('div');
+        clickNumber.className = 'click-number';
+        clickNumber.textContent = ClickCountOne;
+
+
+        const offsetX = event.clientX - 5;
+        const offsetY = event.clientY - 10;
+        
+        clickNumber.style.left = `${offsetX}px`;
+        clickNumber.style.top = `${offsetY}px`;
+
+
+        this.appendChild(clickNumber);
+
+
+        clickNumber.addEventListener('animationend', function() {
+            clickNumber.remove();
+        });
+    }
     
-    clickNumber.style.left = `${offsetX}px`;
-    clickNumber.style.top = `${offsetY}px`;
-
-
-    this.appendChild(clickNumber);
-
-
-    clickNumber.addEventListener('animationend', function() {
-        clickNumber.remove();
-    });
 });
 
