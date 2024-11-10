@@ -1,0 +1,137 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #000000;
+  overflow: hidden;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 60px);
+  grid-template-rows: repeat(5, 60px);
+  gap: 10px;
+  width: 360px;
+  height: 360px;
+  background-color: #051b35;
+  align-content: center;
+  border-radius: 10px;
+}
+
+.cell {
+  width: 60px;
+  height: 60px;
+  background-color: #1e909d;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-left: 10px;
+}
+
+.star {
+  width: 40px;
+  height: 40px;
+  background-image: url("image/asdasd.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.cell.revealed .star {
+  opacity: 1;
+}
+
+.cell.revealed {
+  background-color: #146973;
+}
+
+.background-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.particle {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: moveParticle linear infinite;
+}
+
+@keyframes moveParticle {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(100vw, -50vh);
+  }
+  50% {
+    transform: translate(-50vw, 50vh);
+  }
+  75% {
+    transform: translate(-100vw, -50vh);
+  }
+  100% {
+    transform: translate(50vw, 100vh);
+  }
+}
+.MinesGames {
+  display: flex;
+  flex-direction: column;
+}
+.MinesGames .buttonMines {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: #051b35;
+  margin-top: 30px;
+  border-radius: 20px;
+  align-items: center;
+  height: 90px;
+  color: white;
+}
+.MinesGames .buttonMines button {
+  width: 60px;
+  height: 60px;
+  color: white;
+  cursor: pointer;
+  background-color: #1c65aa;
+  border-radius: 10px;
+  border: none;
+}
+.MinesGames .buttonMines .minus {
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+.MinesGames .buttonMines .plus {
+  margin-bottom: 15px;
+  margin-left: 100px;
+}
+.MinesGames .buttonMines h1 {
+  margin-left: 90px;
+}
+.MinesGames button {
+  width: 100%;
+  height: 40px;
+  margin-top: 20px;
+  color: white;
+  background-color: #1c65aa;
+  font-weight: 1000px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}/*# sourceMappingURL=style.css.map */
