@@ -26,70 +26,197 @@ setInterval(createParticle, 50);
 
 
 
-// const grid = document.querySelector('.grid');
-// const starIndices = [3, 7, 12, 18, 23]; // Индексы клеток со звездами
+// // const grid = document.querySelector('.grid');
+// // const starIndices = [3, 7, 12, 18, 23]; // Индексы клеток со звездами
 
-// // Создаем 25 ячеек
+// // // Создаем 25 ячеек
+// // for (let i = 0; i < 25; i++) {
+// //     const cell = document.createElement('div');
+// //     cell.classList.add('cell');
+
+// //     // Если индекс совпадает со звездой, добавляем элемент звезды
+// //     if (starIndices.includes(i)) {
+// //         const star = document.createElement('div');
+// //         star.classList.add('star');
+// //         cell.appendChild(star);
+// //     }
+
+// //     // Добавляем обработчик клика для раскрытия звезды
+// //     cell.addEventListener('click', () => {
+// //         cell.classList.add('revealed');
+// //     });
+
+// //     grid.appendChild(cell);
+// // }
+
+
+
+// function randomIntFromInterval(min, max) { 
+
+//     return Math.floor(Math.random() * (max - min + 1) + min);
+// }
+  
+
+// const grid = document.querySelector('.grid');
+// const starIndices = []; // Массив для хранения индексов ячеек со звездами
+
+// function createStars(CountMins) {
+//     // Очищаем старые звезды и закрываем старые ячейки
+//     const cells = grid.querySelectorAll('.cell');
+//     cells.forEach(cell => {
+//         cell.classList.remove('revealed'); // Убираем класс открытия
+//         const star = cell.querySelector('.star');
+//         if (star) {
+//             star.remove(); // Удаляем старую звезду
+//         }
+//     });
+
+//     // Генерация новых звезд
+//     starIndices.length = 0; // Очищаем массив индексов
+//     for (let i = 0; i < CountMins; i++) {
+//         const intager = randomIntFromInterval(1, 25);
+//         starIndices.push(intager);
+        
+//     }
+
+//     // Перебираем все ячейки и добавляем звезды в случайные ячейки
+//     cells.forEach((cell, index) => {
+//         if (starIndices.includes(index)) {
+//             const star = document.createElement('div');
+//             star.classList.add('star');
+//             cell.appendChild(star);
+//             cell.classList.add('revealed'); // Добавляем класс для открытия ячейки
+//         }
+//     });
+    
+// }
+
+// // Функция для генерации случайного числа в заданном интервале
+// function randomIntFromInterval(min, max) { 
+//     return Math.floor(Math.random() * (max - min + 1) + min);
+// }
+
+// // Инициализация сетки из 25 ячеек
 // for (let i = 0; i < 25; i++) {
 //     const cell = document.createElement('div');
 //     cell.classList.add('cell');
-
-//     // Если индекс совпадает со звездой, добавляем элемент звезды
-//     if (starIndices.includes(i)) {
-//         const star = document.createElement('div');
-//         star.classList.add('star');
-//         cell.appendChild(star);
-//     }
-
-//     // Добавляем обработчик клика для раскрытия звезды
-//     cell.addEventListener('click', () => {
-//         cell.classList.add('revealed');
-//     });
-
 //     grid.appendChild(cell);
 // }
 
+// const countMines = document.querySelector("#countMines");
+// const minus = document.querySelector(".minus");
+// const plus = document.querySelector(".plus");
+// const getSignal = document.querySelector("#getSignal");
 
+// let CountMins = 3;
+// countMines.innerHTML = CountMins;
 
-function randomIntFromInterval(min, max) { 
+// minus.addEventListener("click", () => {
+//     if (CountMins > 1) {
+//         CountMins--;
+//         countMines.innerHTML = CountMins;
+//     }
+// });
 
-    return Math.floor(Math.random() * (max - min + 1) + min);
-}
-  
+// plus.addEventListener("click", () => {
+//     if (CountMins < 5) {
+//         CountMins++;
+//         countMines.innerHTML = CountMins;
+//     }
+// });
+
+// getSignal.addEventListener("click", () => {
+
+//     VievSignal(CountMins); // Запускаем функцию с задержкой
+
+// });
+
+// // Функция для отображения сигнала (создает случайные ячейки и открывает их)
+// function VievSignal(CountMins) {
+//     if (CountMins == 1){
+//         CountMins = 5
+//         createStars(CountMins);
+//     }
+//     if (CountMins == 2){
+//         CountMins = 5
+//         createStars(CountMins)
+//     }
+//     if (CountMins == 3){
+//         CountMins = 5
+//         createStars(CountMins)
+//     }
+//     if (CountMins == 4){
+//         CountMins = 5
+//         createStars(CountMins)
+//     }
+//     if (CountMins == 5){
+//         CountMins = 5
+//         createStars(CountMins)
+//     }
+    
+// }
+
 
 const grid = document.querySelector('.grid');
 const starIndices = []; // Массив для хранения индексов ячеек со звездами
 
-function createStars(CountMins) {
-    // Очищаем старые звезды и закрываем старые ячейки
-    const cells = grid.querySelectorAll('.cell');
-    cells.forEach(cell => {
-        cell.classList.remove('revealed'); // Убираем класс открытия
-        const star = cell.querySelector('.star');
-        if (star) {
-            star.remove(); // Удаляем старую звезду
-        }
-    });
+// Функция для создания анимации частиц
+function createParticlesAroundCell(cell) {
+    const particlesContainer = document.createElement('div');
+    particlesContainer.classList.add('particles-container');
+    cell.appendChild(particlesContainer);
 
-    // Генерация новых звезд
-    starIndices.length = 0; // Очищаем массив индексов
-    for (let i = 0; i < CountMins; i++) {
-        const intager = randomIntFromInterval(1, 25);
-        starIndices.push(intager);
+    for (let i = 0; i < 20; i++) { // Создаем 20 частиц
+        const particle = document.createElement('div');
+        particle.classList.add('particlea');
+
+        // Устанавливаем случайные позиции и анимации
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.top = `${Math.random() * 100}%`;
+        particle.style.animationDuration = `${Math.random() * 0.5 + 0.5}s`; // Длительность от 0.5 до 1 секунды
+
+        particlesContainer.appendChild(particle);
+
+        // Удаляем частицу через 1 секунду
+        setTimeout(() => particle.remove(), 1000);
     }
 
-    // Перебираем все ячейки и добавляем звезды в случайные ячейки
+    // Удаляем контейнер с частицами через 1 секунду
+    setTimeout(() => particlesContainer.remove(), 1000);
+}
+
+// Функция для автоматического открытия ячеек и создания анимации
+function createStars(CountMins) {
+    const cells = grid.querySelectorAll('.cell');
+
+    // Очищаем старые звезды и закрываем ячейки
+    cells.forEach(cell => {
+        cell.classList.remove('revealed');
+        const star = cell.querySelector('.star');
+        if (star) star.remove();
+    });
+
+    starIndices.length = 0; // Очищаем массив индексов
+    for (let i = 0; i < CountMins; i++) {
+        const index = randomIntFromInterval(0, 24);
+        starIndices.push(index);
+    }
+
+    // Добавляем звезды и анимацию в случайные ячейки
     cells.forEach((cell, index) => {
         if (starIndices.includes(index)) {
             const star = document.createElement('div');
             star.classList.add('star');
             cell.appendChild(star);
-            cell.classList.add('revealed'); // Добавляем класс для открытия ячейки
+            cell.classList.add('revealed');
+
+            // Создаем анимацию частиц для открытой ячейки
+            createParticlesAroundCell(cell);
         }
     });
 }
 
-// Функция для генерации случайного числа в заданном интервале
+// Генерация случайного числа в заданном интервале
 function randomIntFromInterval(min, max) { 
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
@@ -101,6 +228,7 @@ for (let i = 0; i < 25; i++) {
     grid.appendChild(cell);
 }
 
+// Управление количеством мин
 const countMines = document.querySelector("#countMines");
 const minus = document.querySelector(".minus");
 const plus = document.querySelector(".plus");
@@ -124,12 +252,10 @@ plus.addEventListener("click", () => {
 });
 
 getSignal.addEventListener("click", () => {
-
-    VievSignal(CountMins); // Запускаем функцию с задержкой
-
+    VievSignal(CountMins);
 });
 
-// Функция для отображения сигнала (создает случайные ячейки и открывает их)
+// Функция для отображения сигнала
 function VievSignal(CountMins) {
     if (CountMins == 1){
         CountMins = 5
@@ -153,3 +279,4 @@ function VievSignal(CountMins) {
     }
     
 }
+
