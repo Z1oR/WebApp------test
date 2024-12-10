@@ -245,7 +245,7 @@ minus.addEventListener("click", () => {
 });
 
 plus.addEventListener("click", () => {
-    if (CountMins < 5) {
+    if (CountMins < 7) {
         CountMins++;
         countMines.innerHTML = CountMins;
     }
@@ -277,6 +277,12 @@ function VievSignal(CountMins) {
         CountMins = 5
         createStars(CountMins)
     }
-    
+    if (CountMins == 6){
+        CountMins = 6
+        createStars(CountMins)
+    }
+    if (CountMins == 7){
+        CountMins = 7
+        createStars(CountMins)
+    }
 }
-
